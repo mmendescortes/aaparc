@@ -1,4 +1,5 @@
 #!/bin/bash
+# MUST HAVE RIGHT PERMISSIONS!!! RUN THIS COMMAND BEFORE BROWSING => chmod a+x /usr/lib/cgi-bin/cgi.sh
 echo "content-type: text/html"
 echo ""
 permissions=$(ls -l -d .)
