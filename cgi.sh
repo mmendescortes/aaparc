@@ -3,7 +3,7 @@
 echo "content-type: text/html"
 echo ""
 permissions=$(ls -l -d .)
-if [ "drwxr-xr-" != "${permissions:0:9}" ] ; then
+if [ "drwxr-xr-" != "${permissions:0:9}" ] || [[ ! "${permissions}" =~ $(whoami) ]] ; then
 	echo "<html><head><meta charset='utf-8'/><title>Atividade Ativa</title><link href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap' rel='stylesheet'><meta name='viewport' content='width=device-width, initial-scale=1'><style>body{text-align:center;font-family:'Orbitron',sans-serif;background-color:#2b2b2b;color:#dcdccc}a{color: #60b48a}span{color:#8cd0d3}h1{color:#dfaf8f}pre{color:#dc8cc3}</style></head><body><h1>Atividade Ativa: Programação Aplicada a Redes de Computador</p><h2><span>Aluno:</span> Mateus Mendes Côrtes <br><span>Matrícula:</span> 1886041013 - <a href=https://github.com/mmendescortes/aaparc>Github do projeto.</a></h2><h3>O diretório ${PWD} não tem permissões suficientes, por favor rode o comando abaixo no terminal com permissão de superusuário e recarregue a página.</h3><pre>chown $(whoami) ${PWD}
 chmod 755 ${PWD}</pre></body></html>"
 elif [ -f query.txt ] ; then
